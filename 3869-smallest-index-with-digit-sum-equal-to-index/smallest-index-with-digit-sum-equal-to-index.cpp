@@ -1,8 +1,9 @@
 class Solution {
 public:
     int smallestIndex(vector<int>& nums) {
-        
-         for (int i = 0; i < nums.size(); i++) {
+        int min = INT_MAX;
+
+        for (int i = 0; i < nums.size(); i++) {
             int a = nums[i];
             int sum = 0;
 
@@ -13,8 +14,14 @@ public:
             }
 
             if (sum == i) {
-                return i;
+                if (i < min) {
+                    min = i;
+                }
             }
+        }
+
+        if (min != INT_MAX) {
+            return min;
         }
 
         return -1;
